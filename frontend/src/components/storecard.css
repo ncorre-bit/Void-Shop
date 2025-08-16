@@ -1,0 +1,50 @@
+/* frontend/src/components/storecard.css */
+.vs-store-card {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(2,6,23,0.03);
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.vs-store-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(2,6,23,0.08);
+}
+
+.vs-store-avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  flex-shrink: 0;
+}
+
+.vs-store-info {
+  flex: 1;
+}
+
+.vs-store-title {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.vs-store-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.vs-store-rating .star {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.vs-store-rating .star.filled {
+  color: #ffc107;
+}

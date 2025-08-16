@@ -1,0 +1,83 @@
+/* frontend/src/pages/cityselect.css */
+.vs-city-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+  animation: fadeIn 0.18s ease;
+}
+
+.vs-city-modal {
+  width: calc(100% - 32px);
+  max-width: 420px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  animation: slideUp 0.22s ease forwards;
+}
+
+.vs-city-modal h3 {
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+.vs-city-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.vs-city-item {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-weight: 500;
+}
+
+.vs-city-item:hover {
+  border-color: var(--accent-2);
+  background: rgba(124, 58, 237, 0.06);
+  transform: translateX(4px);
+}
+
+.vs-city-item:active {
+  transform: translateX(2px);
+}
+
+.vs-city-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.vs-city-cancel {
+  padding: 10px 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-bg);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.vs-city-cancel:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
