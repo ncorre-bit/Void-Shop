@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Void Shop — WebApp</title>
+
+    <!-- КРИТИЧЕСКИ ВАЖНО: Telegram WebApp скрипт ДОЛЖЕН загружаться первым -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- Инициализация Telegram WebApp сразу после загрузки скрипта -->
+    <script>
+      // Проверяем что Telegram WebApp загрузился
+      console.log('🔍 Проверка загрузки Telegram WebApp скрипта:');
+      console.log('window.Telegram:', typeof window.Telegram);
+      console.log('window.Telegram.WebApp:', typeof window.Telegram?.WebApp);
+
+      if (window.Telegram && window.Telegram.WebApp) {
+        console.log('✅ Telegram WebApp скрипт загружен успешно');
+        console.log('📱 WebApp данные:', {
+          version: window.Telegram.WebApp.version,
+          platform: window.Telegram.WebApp.platform,
+          initData: window.Telegram.WebApp.initData ? 'есть' : 'нет',
+          initDataUnsafe: window.Telegram.WebApp.initDataUnsafe ? 'есть' : 'нет',
+          user: window.Telegram.WebApp.initDataUnsafe?.user ? 'есть' : 'нет'
+        });
+
+        // Сразу вызываем ready() чтобы сообщить Telegram что приложение готово
+        try {
+          window.Telegram.WebApp.ready();
+          console.log('✅ WebApp.ready() вызван успешно');
+        } catch (e) {
+          console.error('❌ Ошибка вызова WebApp.ready():', e);
+        }
+      } else {
+        console.error('❌ Telegram WebApp скрипт НЕ загружен!');
+        console.log('🔍 Проверьте что приложение запущено через Telegram бота');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
